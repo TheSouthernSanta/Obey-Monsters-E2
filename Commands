@@ -1,0 +1,16 @@
+@name OM Commands
+
+S = owner():lastSaid():lower():explode(" ")
+if(chatClk(owner()) & S:string(1)=="!npcweapon"){
+    hideChat(1)
+    owner():aimEntity():npcGiveWeapon(+S[2,string])
+}
+
+if(Mode == 1 & chatClk(owner()) & S:string(1)=="!obeyhelp"){
+    hint("To view this again type !obeyhelp",5000)
+    hint("E to make neutral for hostile npc's",5000)
+    hint("LMB to select Npc(With Fists)",5000)
+    hint("RMB to change between Neutral and Hostile Relationship of Selected Npc with Entity(With Fists)",5000)
+    hint("R to move Selected Npc(With Fists)",5000)
+    hint("Made By 666santa",5000)
+}
