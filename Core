@@ -3,9 +3,6 @@
 
 if(first()){
     Mode = 1
-    Follow = 0
-    FollowElse = 0
-    Stay = 0
     holoCreate(1,entity():pos(),vec())
     hint("To view this again type !obeyhelp",5000)
     hint("E to make neutral for hostile npc's",5000)
