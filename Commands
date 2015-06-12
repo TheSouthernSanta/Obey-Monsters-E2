@@ -12,5 +12,6 @@ if(Mode == 1 & chatClk(owner()) & S:string(1)=="!obeyhelp"){
     hint("LMB to select Npc(With Fists)",5000)
     hint("RMB to change between Neutral and Hostile Relationship of Selected Npc with Entity(With Fists)",5000)
     hint("R to move Selected Npc(With Fists)",5000)
+    hint("This is only to be used to control hostile npc's ONLY",5000)
     hint("Made By 666santa",5000)
 }
