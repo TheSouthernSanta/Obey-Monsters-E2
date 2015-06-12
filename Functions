@@ -1,0 +1,9 @@
+@name OM Functions
+
+function void holosend(Index,Position:vector,Scale:vector,Angle:angle){
+    holoPos(Index,Position)
+    holoScale(Index,Scale)
+    holoColor(Index,vec(0,230,0))
+    holoModel(Index,"hq_cylinder")
+    holoAng(Index,Angle)
+}
