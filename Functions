@@ -7,3 +7,4 @@ function void holosend(Index,Position:vector,Scale:vector,Angle:angle){
     holoModel(Index,"hq_cylinder")
     holoAng(Index,Angle)
 }
+
