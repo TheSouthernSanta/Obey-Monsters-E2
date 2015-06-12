@@ -1,0 +1,63 @@
+@name OM Core
+@persist ControlledEntity:entity Mode
+
+if(first()){
+    Mode = 1
+    Follow = 0
+    FollowElse = 0
+    Stay = 0
+    holoCreate(1,entity():pos(),vec())
+    hint("To view this again type !obeyhelp",5000)
+    hint("E to make neutral for hostile npc's",5000)
+    hint("LMB to select Npc(With Fists)",5000)
+    hint("RMB to change between Neutral and Hostile Relationship of Selected Npc with Entity(With Fists)",5000)
+    hint("R to move Selected Npc(With Fists)",5000)
+    hint("This is only to be used to control hostile npc's ONLY",5000)
+    hint("Made By 666santa",5000)
+}
+
+if(Mode == 1 & ControlledEntity:isAlive()){
+    holosend(1,ControlledEntity:pos(),vec(4,4,0.3),owner():angles())
+}else{holosend(1,entity():pos(),vec(0,0,0),entity():angles())}
+
+if(owner():keyUse()){
+    print(_HUD_PRINTTALK,+owner():aimEntity():type()+" has been Tamed")
+    owner():aimEntity():npcRelationship("player","neutral",900)
+    owner():aimEntity():npcRelationship(owner(),"like",999)
+    owner():aimEntity():npcRelationshipByOwner(owner(),"like",900)
+    owner():aimEntity():npcStop()
+}
+
+if(owner():weapon():type()=="weapon_fists"){
+if(Mode == 1 & owner():keyAttack1()){
+    ControlledEntity = owner():aimEntity()
+}
+}
+
+if(Mode == 1 & owner():keyAttack2()){
+    if(ControlledEntity:npcDisp(owner():aimEntity()) == "neutral"){
+        timer("ToHate",100)
+}
+    if(ControlledEntity:npcDisp(owner():aimEntity()) == "hate"){
+        timer("ToNeutral",100)
+}
+
+}
+if(Mode == 1 & owner():keyReload()){
+    ControlledEntity:npcGoRun(owner():aimPos())
+}
+
+
+if(clk("ToHate")){
+    ControlledEntity:npcRelationship(owner():aimEntity(),"hate",900)
+    print(_HUD_PRINTTALK,+ControlledEntity:npcDisp(owner():aimEntity()))
+    stoptimer("ToNeutral")
+    stoptimer("ToHate")
+}
+
+if(clk("ToNeutral")){
+    ControlledEntity:npcRelationship(owner():aimEntity(),"neutral",900)
+    print(_HUD_PRINTTALK,+ControlledEntity:npcDisp(owner():aimEntity()))
+    stoptimer("ToHate")
+    stoptimer("ToNeutral")
+}
