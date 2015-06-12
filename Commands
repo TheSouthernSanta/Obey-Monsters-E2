@@ -6,6 +6,10 @@ if(chatClk(owner()) & S:string(1)=="!npcweapon"){
     owner():aimEntity():npcGiveWeapon(+S[2,string])
 }
 
+if(chatClk(owner()) & S:string(1)=="!version"){
+    hideChat(1)
+    print(_HUD_PRINTTALK,"The Version of this E2 is " + VersionData)
+
 if(Mode == 1 & chatClk(owner()) & S:string(1)=="!obeyhelp"){
     hint("To view this again type !obeyhelp",5000)
     hint("E to make neutral for hostile npc's",5000)
