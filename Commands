@@ -8,7 +8,7 @@ if(chatClk(owner()) & S:string(1)=="!npcweapon"){
 
 if(chatClk(owner()) & S:string(1)=="!version"){
     hideChat(1)
-    print(_HUD_PRINTTALK,"The Version of this E2 is " + VersionData)
+    print(_HUD_PRINTTALK,"The Version of this E2 is " + Version:toString())
 
 if(Mode == 1 & chatClk(owner()) & S:string(1)=="!obeyhelp"){
     hint("To view this again type !obeyhelp",5000)
